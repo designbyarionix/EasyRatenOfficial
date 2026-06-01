@@ -2,7 +2,7 @@ import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { HowItWorks } from "@/components/how-it-works"
-import { RateCalculator } from "@/components/rate-calculator"
+import { WhyEasyRaten } from "@/components/why-easyraten"
 import { Testimonials } from "@/components/testimonials"
 import { Security } from "@/components/security"
 import { SiteFooter } from "@/components/site-footer"
@@ -15,7 +15,7 @@ export default function Page() {
         <Hero />
         <Services />
         <HowItWorks />
-        <RateCalculator />
+        <WhyEasyRaten />
         <Testimonials />
         <Security />
       </main>
