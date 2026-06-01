@@ -1,50 +1,107 @@
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { Truck, Droplet, Disc3, Sprout, Zap, SprayCan } from "lucide-react"
 
 const services = [
-  { title: "Umzug", desc: "Stressfrei umziehen", price: "20", img: "/images/service-umzug.png" },
-  { title: "Klempner", desc: "Schnelle Hilfe bei Problemen", price: "15", img: "/images/service-klempner.png" },
-  { title: "Reifenwechsel", desc: "Sicher unterwegs", price: "15", img: "/images/service-reifen.png" },
-  { title: "Renovierung", desc: "Verschönern Sie Ihr Zuhause", price: "30", img: "/images/service-renovierung.png" },
+  {
+    title: "Umzug",
+    icon: Truck,
+    total: "600",
+    monthly: "50",
+    img: "/images/svc-umzug.png",
+  },
+  {
+    title: "Klempner",
+    icon: Droplet,
+    total: "400",
+    monthly: "35",
+    img: "/images/svc-klempner.png",
+  },
+  {
+    title: "Reifenwechsel",
+    icon: Disc3,
+    total: "200",
+    monthly: "20",
+    img: "/images/svc-reifen.png",
+  },
+  {
+    title: "Gartenbau",
+    icon: Sprout,
+    total: "300",
+    monthly: "25",
+    img: "/images/svc-garten.png",
+  },
+  {
+    title: "Elektrik",
+    icon: Zap,
+    total: "500",
+    monthly: "45",
+    img: "/images/svc-elektrik.png",
+  },
+  {
+    title: "Reinigung",
+    icon: SprayCan,
+    total: "150",
+    monthly: "15",
+    img: "/images/svc-reinigung.png",
+  },
 ]
 
 export function Services() {
   return (
-    <section id="leistungen" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section id="leistungen" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="text-center">
-        <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Beliebte Dienstleistungen</h2>
-        <p className="mt-3 text-muted-foreground">Wählen Sie aus zahlreichen Services und zahlen Sie bequem in Raten.</p>
+        <h2 className="font-display text-4xl font-extrabold uppercase tracking-tight sm:text-5xl lg:text-6xl">
+          Unsere Services
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground text-pretty">
+          Wählen Sie aus einer großen Auswahl an professionellen Dienstleistungen
+        </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((s) => (
-          <div
-            key={s.title}
-            className="group flex flex-col rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-lg"
-          >
-            <div className="flex h-36 items-center justify-center rounded-xl bg-muted/40 p-4">
-              <Image
-                src={s.img || "/placeholder.svg"}
-                alt={s.title}
-                width={200}
-                height={140}
-                className="h-full w-auto object-contain"
-              />
-            </div>
-            <h3 className="mt-5 font-display text-xl font-bold">{s.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
-            <div className="mt-5 flex items-center justify-between">
-              <p className="text-sm text-muted-foreground">
-                ab{" "}
-                <span className="font-display text-xl font-extrabold text-brand">{s.price} €</span>{" "}
-                / Monat
-              </p>
-              <span className="flex size-9 items-center justify-center rounded-full border border-border text-brand transition-colors group-hover:bg-brand group-hover:text-brand-foreground">
-                <ArrowRight className="size-4" />
-              </span>
-            </div>
-          </div>
-        ))}
+      <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => {
+          const Icon = s.icon
+          return (
+            <article
+              key={s.title}
+              className="group overflow-hidden rounded-2xl bg-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] ring-1 ring-border/60 transition-shadow hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
+            >
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={s.img || "/placeholder.svg"}
+                  alt={s.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+
+              <div className="p-6">
+                <div className="flex items-center gap-3">
+                  <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand text-brand-foreground">
+                    <Icon className="size-5" />
+                  </span>
+                  <h3 className="font-display text-2xl font-bold">{s.title}</h3>
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 items-start">
+                  <div className="text-center">
+                    <p className="text-sm text-muted-foreground">Gesamtpreis</p>
+                    <p className="mt-1 font-display text-3xl font-extrabold text-brand">€{s.total}</p>
+                  </div>
+                  <div className="border-l border-border pl-4 text-center">
+                    <p className="text-sm text-muted-foreground">Oder zahlen Sie in</p>
+                    <p className="mt-1 font-display text-2xl font-extrabold text-brand">
+                      €{s.monthly}
+                      <span className="text-base font-bold">/Monat</span>
+                    </p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">(12 Monate)</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )
