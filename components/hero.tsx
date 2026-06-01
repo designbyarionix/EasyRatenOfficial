@@ -1,82 +1,129 @@
 import Image from "next/image"
-import { ArrowRight, Play, Zap, CalendarClock, ShieldCheck, Check } from "lucide-react"
+import { ArrowRight, ChevronRight, ShieldCheck, CalendarDays, BadgeCheck, PieChart, Search, CalendarCheck, CircleCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { PhoneMockup } from "@/components/phone-mockup"
 
-const features = [
-  { icon: Zap, title: "Schnell & einfach", desc: "In wenigen Minuten" },
-  { icon: CalendarClock, title: "Flexible Raten", desc: "Ab 15 € / Monat" },
-  { icon: ShieldCheck, title: "Sicher & transparent", desc: "Keine versteckten Kosten" },
+const trust = [
+  { icon: ShieldCheck, title: "Sicher & vertrauenswürdig", desc: "SSL-verschlüsselt" },
+  { icon: CalendarDays, title: "Flexible Raten", desc: "Schon ab 3 Monaten" },
+  { icon: BadgeCheck, title: "Transparente Preise", desc: "Keine versteckten Kosten" },
+]
+
+const steps = [
+  { icon: Search, label: "1. Service wählen" },
+  { icon: CalendarCheck, label: "2. Laufzeit wählen" },
+  { icon: CircleCheck, label: "3. Raten genießen" },
 ]
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute right-0 top-0 -z-10 hidden h-full w-1/2 rounded-bl-[40%] bg-accent lg:block" />
-      <div className="mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:grid lg:grid-cols-2 lg:gap-12 lg:px-8 lg:pb-24 lg:pt-20">
+    <section className="relative overflow-hidden bg-background">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-12 pt-10 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:px-8 lg:pb-20 lg:pt-16">
+        {/* Left column */}
         <div className="flex flex-col justify-center">
-          <h1 className="font-display text-balance text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            Dienstleistungen in <span className="text-brand">Raten zahlen</span>
+          <h1 className="font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
+            Dienstleistungen in Raten.
+            <br />
+            <span className="text-brand">Einfach</span> bezahlen.
           </h1>
-          <p className="mt-6 max-w-md text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Bezahlen Sie professionelle Dienstleistungen flexibel und fair in monatlichen Raten – einfach, schnell und
-            100% online.
+          <p className="mt-6 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">
+            Wählen Sie aus hunderten von Services und zahlen Sie flexibel in monatlichen Raten.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <Button
               size="lg"
-              className="h-12 rounded-xl bg-brand px-6 text-base font-semibold text-brand-foreground hover:bg-brand/90"
+              className="h-14 rounded-xl bg-brand px-7 text-base font-semibold text-brand-foreground hover:bg-brand/90"
             >
-              Jetzt starten <ArrowRight className="size-4" />
+              Services entdecken <ArrowRight className="size-5" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-12 rounded-xl px-6 text-base font-semibold"
+            <a
+              href="#so-funktioniert-es"
+              className="group inline-flex items-center gap-1.5 px-2 text-base font-semibold text-foreground"
             >
-              So funktioniert es <Play className="size-4 fill-current" />
-            </Button>
+              Wie es funktioniert
+              <ChevronRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {features.map((f) => (
-              <div key={f.title} className="flex items-start gap-3">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-brand">
-                  <f.icon className="size-4" />
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {trust.map((t) => (
+              <div key={t.title} className="flex items-start gap-3">
+                <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-brand">
+                  <t.icon className="size-5" />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold leading-tight">{f.title}</p>
-                  <p className="text-xs text-muted-foreground">{f.desc}</p>
+                  <p className="text-sm font-bold leading-tight text-foreground">{t.title}</p>
+                  <p className="text-xs text-muted-foreground">{t.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative mt-12 flex items-center justify-center lg:mt-0">
-          <Image
-            src="/images/hero-family.png"
-            alt="Glückliche Familie schaut gemeinsam auf ein Smartphone"
-            width={640}
-            height={520}
-            priority
-            className="w-full max-w-lg rounded-3xl object-cover shadow-sm"
-          />
+        {/* Right column */}
+        <div className="relative flex min-h-[460px] items-center justify-center lg:min-h-[620px]">
+          {/* orange blob */}
+          <div className="absolute right-0 top-1/2 -z-0 h-[420px] w-[420px] -translate-y-1/2 translate-x-10 rounded-[46%_54%_60%_40%/52%_48%_52%_48%] bg-brand/90 lg:h-[480px] lg:w-[480px]" />
 
-          <div className="absolute -bottom-6 right-2 w-44 rounded-2xl border border-border bg-card p-4 shadow-xl sm:right-6 sm:w-52">
-            <p className="text-xs text-muted-foreground">Ihre monatliche Rate</p>
-            <p className="font-display text-4xl font-extrabold text-brand">
-              30<span className="ml-1 align-top text-sm font-semibold text-foreground">EUR</span>
+          {/* worker image */}
+          <div className="absolute bottom-0 left-0 z-10 h-full w-[62%] overflow-hidden">
+            <Image
+              src="/images/handyman.png"
+              alt="Freundlicher Handwerker hält einen Karton"
+              fill
+              priority
+              className="object-cover object-top"
+            />
+          </div>
+
+          {/* phone */}
+          <div className="relative z-20 ml-auto">
+            <PhoneMockup />
+          </div>
+
+          {/* Ratenübersicht floating card */}
+          <div className="absolute bottom-16 left-0 z-30 w-52 rounded-2xl bg-card p-4 shadow-[0_18px_45px_-15px_rgba(0,0,0,0.3)] sm:left-4">
+            <div className="flex items-center gap-2">
+              <span className="flex size-9 items-center justify-center rounded-full bg-accent text-brand">
+                <PieChart className="size-4" />
+              </span>
+              <p className="text-xs font-medium text-muted-foreground">Ihre Ratenübersicht</p>
+            </div>
+            <p className="mt-3 font-display text-2xl font-extrabold text-foreground">
+              €149,00 <span className="text-sm font-medium text-muted-foreground">/ Monat</span>
             </p>
-            <p className="-mt-1 text-xs font-medium text-muted-foreground">/ Monat</p>
-            <ul className="mt-3 space-y-1.5">
-              {["Schnelle Genehmigung", "Flexible Laufzeiten", "Jederzeit kündbar"].map((t) => (
-                <li key={t} className="flex items-center gap-1.5 text-[11px] font-medium text-foreground">
-                  <Check className="size-3 text-brand" strokeWidth={3} />
-                  {t}
-                </li>
-              ))}
-            </ul>
+            <p className="text-xs text-muted-foreground">2 aktive Ratenverträge</p>
+            <a href="#" className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand">
+              Details ansehen <ChevronRight className="size-3" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 3-step bar */}
+      <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm md:flex-row md:items-center md:gap-8">
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-brand">
+              <ShieldCheck className="size-5" />
+            </span>
+            <p className="text-sm font-bold leading-tight text-foreground">
+              In nur 3 Schritten
+              <br />
+              zu Ihrem Wunsch-Service
+            </p>
+          </div>
+          <div className="hidden h-10 w-px bg-border md:block" />
+          <div className="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-3">
+            {steps.map((s) => (
+              <div key={s.label} className="flex items-center gap-2.5">
+                <span className="flex size-9 items-center justify-center rounded-full bg-muted text-brand">
+                  <s.icon className="size-4" />
+                </span>
+                <span className="text-sm font-medium text-foreground">{s.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,49 +1,43 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Menu, X } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "So funktioniert es", href: "#so-funktioniert-es" },
-  { label: "Leistungen", href: "#leistungen" },
-  { label: "Preise", href: "#preise" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Services", href: "#leistungen", dropdown: true },
+  { label: "Wie es funktioniert", href: "#so-funktioniert-es" },
   { label: "Über uns", href: "#ueber-uns" },
+  { label: "Kontakt", href: "#kontakt" },
 ]
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-brand text-brand-foreground">
-            <Check className="size-5" strokeWidth={3} />
-          </span>
-          <span className="font-display text-xl font-extrabold tracking-tight">
+    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#" className="flex items-center">
+          <span className="font-display text-2xl font-extrabold tracking-tight text-foreground">
             Easy<span className="text-brand">Raten</span>
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="flex items-center gap-1 text-[15px] font-medium text-foreground/80 transition-colors hover:text-brand"
             >
               {link.label}
+              {link.dropdown && <ChevronDown className="size-4 text-foreground/50" />}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <Button variant="outline" className="rounded-lg font-semibold">
-            Einloggen
-          </Button>
-          <Button className="rounded-lg bg-brand font-semibold text-brand-foreground hover:bg-brand/90">
+        <div className="hidden lg:flex">
+          <Button className="h-11 rounded-xl bg-brand px-6 text-[15px] font-semibold text-brand-foreground hover:bg-brand/90">
             Jetzt starten
           </Button>
         </div>
@@ -66,19 +60,14 @@ export function SiteHeader() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-accent hover:text-brand"
               >
                 {link.label}
               </a>
             ))}
-            <div className="mt-2 flex flex-col gap-2">
-              <Button variant="outline" className="w-full rounded-lg font-semibold">
-                Einloggen
-              </Button>
-              <Button className="w-full rounded-lg bg-brand font-semibold text-brand-foreground hover:bg-brand/90">
-                Jetzt starten
-              </Button>
-            </div>
+            <Button className="mt-2 w-full rounded-xl bg-brand font-semibold text-brand-foreground hover:bg-brand/90">
+              Jetzt starten
+            </Button>
           </nav>
         </div>
       )}

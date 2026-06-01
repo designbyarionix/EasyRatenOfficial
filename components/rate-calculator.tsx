@@ -28,10 +28,10 @@ export function RateCalculator() {
 
   return (
     <section id="preise" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="rounded-3xl bg-navy p-6 text-navy-foreground sm:p-10 lg:grid lg:grid-cols-2 lg:gap-10">
+      <div className="rounded-3xl bg-ink p-6 text-ink-foreground sm:p-10 lg:grid lg:grid-cols-2 lg:gap-10">
         <div>
           <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">Berechnen Sie Ihre Rate</h2>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-navy-foreground/70">
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-foreground/70">
             Nutzen Sie unseren Rechner und finden Sie Ihre passende Finanzierung in Sekunden.
           </p>
 
@@ -54,7 +54,7 @@ export function RateCalculator() {
                 background: `linear-gradient(to right, var(--brand) ${pct}%, rgba(255,255,255,0.15) ${pct}%)`,
               }}
             />
-            <div className="mt-2 flex justify-between text-xs text-navy-foreground/60">
+            <div className="mt-2 flex justify-between text-xs text-ink-foreground/60">
               <span>{MIN} €</span>
               <span>{MAX.toLocaleString("de-DE")} €</span>
             </div>
@@ -70,8 +70,8 @@ export function RateCalculator() {
                   onClick={() => setTerm(t)}
                   className={`rounded-xl px-2 py-3 text-sm font-semibold transition-colors ${
                     term === t
-                      ? "bg-white text-navy"
-                      : "border border-white/15 bg-white/5 text-navy-foreground hover:bg-white/10"
+                      ? "bg-white text-ink"
+                      : "border border-white/15 bg-white/5 text-ink-foreground hover:bg-white/10"
                   }`}
                 >
                   {t} Monate
@@ -80,7 +80,7 @@ export function RateCalculator() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-navy-foreground/70">
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-ink-foreground/70">
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="size-4 text-brand" /> Keine versteckten Kosten
             </span>
