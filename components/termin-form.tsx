@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { useRouter } from "next/navigation"
 import {
   Wrench,
   Zap,
@@ -85,6 +86,7 @@ export function TerminForm({
   total: number
 }) {
   const CategoryIcon = categoryIcons[service.category] ?? Wrench
+  const router = useRouter()
 
   const today = useMemo(() => {
     const d = new Date()
@@ -287,6 +289,11 @@ export function TerminForm({
 
             <Button
               disabled={!canContinue}
+              onClick={() =>
+                router.push(
+                  `/services/${service.slug}/buchen/zahlung?monthly=${monthly.toFixed(2)}&months=${months}&total=${total.toFixed(2)}`,
+                )
+              }
               className="mt-6 h-14 w-full rounded-xl bg-brand text-lg font-bold text-brand-foreground hover:bg-brand/90 disabled:opacity-50"
             >
               Weiter
