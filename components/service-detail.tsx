@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   Wrench,
   Zap,
@@ -247,8 +248,11 @@ export function ServiceDetail({
               <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-foreground/50" />
             </div>
 
-            <Button className="mt-5 h-14 w-full rounded-xl bg-brand text-lg font-bold text-brand-foreground hover:bg-brand/90">
-              Buchen
+            <Button
+              asChild
+              className="mt-5 h-14 w-full rounded-xl bg-brand text-lg font-bold text-brand-foreground hover:bg-brand/90"
+            >
+              <Link href={`/services/${service.slug}/buchen?term=${encodeURIComponent(term)}`}>Buchen</Link>
             </Button>
 
             <p className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
