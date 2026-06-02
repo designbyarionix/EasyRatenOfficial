@@ -28,18 +28,18 @@ const categories = [
 ]
 
 const services = [
-  { title: "Klempnerarbeiten", category: "Klempner", price: "35", img: "/images/svc-klempner.png" },
-  { title: "Elektroinstallation", category: "Elektrik", price: "35", img: "/images/svc-elektrik.png" },
-  { title: "Reifenwechsel", category: "Handwerk", price: "35", img: "/images/svc-reifen.png" },
-  { title: "Umzug", category: "Umzug", price: "35", img: "/images/svc-umzug.png" },
-  { title: "Küchenmontage", category: "Handwerk", price: "35", img: "/images/svc-kueche.png" },
-  { title: "Badezimmerrenovierung", category: "Handwerk", price: "35", img: "/images/svc-bad.png" },
-  { title: "Gartenpflege", category: "Haus & Garten", price: "35", img: "/images/svc-garten.png" },
-  { title: "Malerarbeiten", category: "Haus & Garten", price: "35", img: "/images/svc-maler.png" },
-  { title: "Reinigungsservice", category: "Reinigung", price: "35", img: "/images/svc-reinigung.png" },
-  { title: "IT-Support", category: "IT & Technik", price: "35", img: "/images/svc-it.png" },
-  { title: "Möbelaufbau", category: "Handwerk", price: "35", img: "/images/svc-moebel.png" },
-  { title: "Hausgeräte Reparatur", category: "IT & Technik", price: "35", img: "/images/svc-geraete.png" },
+  { title: "Klempnerarbeiten", category: "Klempner", price: "35", img: "/images/card-klempner.png" },
+  { title: "Elektroinstallation", category: "Elektrik", price: "35", img: "/images/card-elektrik.png" },
+  { title: "Reifenwechsel", category: "Handwerk", price: "35", img: "/images/card-reifen.png" },
+  { title: "Umzug", category: "Umzug", price: "35", img: "/images/card-umzug.png" },
+  { title: "Küchenmontage", category: "Handwerk", price: "35", img: "/images/card-kueche.png" },
+  { title: "Badezimmerrenovierung", category: "Handwerk", price: "35", img: "/images/card-bad.png" },
+  { title: "Gartenpflege", category: "Haus & Garten", price: "35", img: "/images/card-garten.png" },
+  { title: "Malerarbeiten", category: "Haus & Garten", price: "35", img: "/images/card-maler.png" },
+  { title: "Reinigungsservice", category: "Reinigung", price: "35", img: "/images/card-reinigung.png" },
+  { title: "IT-Support", category: "IT & Technik", price: "35", img: "/images/card-it.png" },
+  { title: "Möbelaufbau", category: "Handwerk", price: "35", img: "/images/card-moebel.png" },
+  { title: "Hausgeräte Reparatur", category: "IT & Technik", price: "35", img: "/images/card-geraete.png" },
 ]
 
 function StarRating() {
@@ -128,40 +128,39 @@ export function AllServices() {
             Alle Services
           </h1>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             {filtered.map((s) => (
               <article
                 key={s.title}
                 className="group flex flex-col overflow-hidden rounded-2xl bg-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] ring-1 ring-border/60 transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
               >
-                <div className="relative h-44 w-full overflow-hidden">
+                <div className="relative aspect-[16/7] w-full overflow-hidden">
                   <Image
                     src={s.img || "/placeholder.svg"}
                     alt={s.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
-                  <h2 className="font-display text-lg font-bold text-balance">{s.title}</h2>
-                  <div className="mt-2">
-                    <StarRating />
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between gap-3">
-                    <p className="font-display text-base font-extrabold text-brand">
+                <div className="flex items-center justify-between gap-4 p-5">
+                  <div className="min-w-0">
+                    <h2 className="font-display text-lg font-bold text-balance">{s.title}</h2>
+                    <div className="mt-1.5">
+                      <StarRating />
+                    </div>
+                    <p className="mt-1.5 font-display text-base font-extrabold text-brand">
                       ab €{s.price}
                       <span className="text-sm font-bold">/Monat</span>
                     </p>
-                    <Button
-                      variant="outline"
-                      className="h-10 rounded-xl border-border px-5 font-semibold text-foreground hover:border-brand hover:bg-brand hover:text-brand-foreground"
-                    >
-                      Buchen
-                    </Button>
                   </div>
+                  <Button
+                    variant="outline"
+                    className="h-10 shrink-0 rounded-xl border-border px-6 font-semibold text-foreground hover:border-brand hover:bg-brand hover:text-brand-foreground"
+                  >
+                    Buchen
+                  </Button>
                 </div>
               </article>
             ))}
