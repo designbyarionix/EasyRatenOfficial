@@ -1,39 +1,46 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "Services", href: "#leistungen", dropdown: true },
-  { label: "Wie es funktioniert", href: "#so-funktioniert-es" },
-  { label: "Über uns", href: "#ueber-uns" },
-  { label: "Kontakt", href: "#kontakt" },
+  { label: "Services", href: "/services" },
+  { label: "Wie es funktioniert", href: "/#so-funktioniert-es" },
+  { label: "Über uns", href: "/#ueber-uns" },
+  { label: "Kontakt", href: "/#kontakt" },
 ]
 
-export function SiteHeader() {
+export function SiteHeader({ active }: { active?: string }) {
   const [open, setOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
           <span className="font-display text-2xl font-extrabold tracking-tight text-foreground">
             Easy<span className="text-brand">Raten</span>
           </span>
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="flex items-center gap-1 text-[15px] font-medium text-foreground/80 transition-colors hover:text-brand"
-            >
-              {link.label}
-              {link.dropdown && <ChevronDown className="size-4 text-foreground/50" />}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.label === active
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`relative flex items-center gap-1 text-[15px] font-medium transition-colors hover:text-brand ${
+                  isActive ? "text-brand" : "text-foreground/80"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <span className="absolute -bottom-[26px] left-0 right-0 h-0.5 rounded-full bg-brand" />
+                )}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="hidden lg:flex">
@@ -60,7 +67,9 @@ export function SiteHeader() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-foreground/80 hover:bg-accent hover:text-brand"
+                className={`rounded-lg px-3 py-2 text-sm font-medium hover:bg-accent hover:text-brand ${
+                  link.label === active ? "bg-accent text-brand" : "text-foreground/80"
+                }`}
               >
                 {link.label}
               </a>

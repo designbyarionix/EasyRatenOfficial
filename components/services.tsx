@@ -105,7 +105,7 @@ export function Services() {
 
       <div className="mt-12 flex justify-center">
         <a
-          href="#"
+          href="/services"
           className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 font-display text-base font-bold text-background transition-colors hover:bg-foreground/90"
         >
           Alle Services anzeigen
