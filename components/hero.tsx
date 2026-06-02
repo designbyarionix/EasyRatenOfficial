@@ -21,7 +21,7 @@ export function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-12 pt-10 sm:px-6 lg:grid-cols-2 lg:gap-6 lg:px-8 lg:pb-20 lg:pt-16">
         {/* Left column */}
         <div className="flex flex-col justify-center">
-          <h1 className="font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
+          <h1 className="font-display text-[1.65rem] font-extrabold uppercase leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
             Dienstleistungen in Raten.
             <br />
             <span className="text-brand">Einfach</span> bezahlen.
@@ -62,17 +62,18 @@ export function Hero() {
         </div>
 
         {/* Right column */}
-        <div className="relative flex min-h-[460px] items-center justify-center lg:min-h-[620px]">
+        <div className="relative flex min-h-[440px] items-center justify-center sm:min-h-[500px] lg:min-h-[620px]">
           {/* orange blob */}
-          <div className="absolute right-0 top-1/2 -z-0 h-[420px] w-[420px] -translate-y-1/2 translate-x-10 rounded-[46%_54%_60%_40%/52%_48%_52%_48%] bg-brand/90 lg:h-[480px] lg:w-[480px]" />
+          <div className="absolute right-0 top-1/2 -z-0 size-[340px] -translate-y-1/2 translate-x-6 rounded-[46%_54%_60%_40%/52%_48%_52%_48%] bg-brand/90 sm:size-[420px] sm:translate-x-10 lg:size-[480px]" />
 
           {/* worker image */}
-          <div className="absolute bottom-0 left-0 z-10 h-full w-[62%] overflow-hidden">
+          <div className="absolute bottom-0 left-0 z-10 h-full w-[55%] overflow-hidden sm:w-[60%]">
             <Image
               src="/images/handyman.png"
               alt="Freundlicher Handwerker hält einen Karton"
               fill
               priority
+              sizes="(max-width: 1024px) 60vw, 30vw"
               className="object-cover object-top"
             />
           </div>
@@ -83,14 +84,14 @@ export function Hero() {
           </div>
 
           {/* Ratenübersicht floating card */}
-          <div className="absolute bottom-16 left-0 z-30 w-52 rounded-2xl bg-card p-4 shadow-[0_18px_45px_-15px_rgba(0,0,0,0.3)] sm:left-4">
+          <div className="absolute bottom-4 left-0 z-30 w-44 rounded-2xl bg-card p-3.5 shadow-[0_18px_45px_-15px_rgba(0,0,0,0.3)] sm:bottom-16 sm:left-4 sm:w-52 sm:p-4">
             <div className="flex items-center gap-2">
-              <span className="flex size-9 items-center justify-center rounded-full bg-accent text-brand">
+              <span className="flex size-8 items-center justify-center rounded-full bg-accent text-brand sm:size-9">
                 <PieChart className="size-4" />
               </span>
               <p className="text-xs font-medium text-muted-foreground">Ihre Ratenübersicht</p>
             </div>
-            <p className="mt-3 font-display text-2xl font-extrabold text-foreground">
+            <p className="mt-3 font-display text-xl font-extrabold text-foreground sm:text-2xl">
               €149,00 <span className="text-sm font-medium text-muted-foreground">/ Monat</span>
             </p>
             <p className="text-xs text-muted-foreground">2 aktive Ratenverträge</p>

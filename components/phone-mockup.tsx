@@ -27,7 +27,7 @@ const services = [
 
 export function PhoneMockup() {
   return (
-    <div className="w-[300px] rounded-[2.75rem] border-[10px] border-foreground bg-foreground p-0 shadow-2xl">
+    <div className="w-[256px] rounded-[2.75rem] border-[10px] border-foreground bg-foreground p-0 shadow-2xl sm:w-[280px] lg:w-[300px]">
       <div className="relative overflow-hidden rounded-[2.1rem] bg-card">
         {/* notch */}
         <div className="absolute left-1/2 top-2 z-10 h-5 w-28 -translate-x-1/2 rounded-full bg-foreground" />
