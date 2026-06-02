@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Truck, Droplet, Disc3, Sprout, Zap, SprayCan } from "lucide-react"
+import { Truck, Droplet, Disc3, Sprout, Zap, SprayCan, ArrowRight } from "lucide-react"
 
 const services = [
   {
@@ -84,24 +84,33 @@ export function Services() {
                   <h3 className="font-display text-2xl font-bold">{s.title}</h3>
                 </div>
 
-                <div className="mt-6 grid grid-cols-2 items-start">
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">Gesamtpreis</p>
-                    <p className="mt-1 font-display text-3xl font-extrabold text-brand">€{s.total}</p>
-                  </div>
-                  <div className="border-l border-border pl-4 text-center">
-                    <p className="text-sm text-muted-foreground">Oder zahlen Sie in</p>
-                    <p className="mt-1 font-display text-2xl font-extrabold text-brand">
-                      €{s.monthly}
-                      <span className="text-base font-bold">/Monat</span>
-                    </p>
-                    <p className="mt-0.5 text-xs text-muted-foreground">(12 Monate)</p>
-                  </div>
+                <div className="mt-5 flex items-baseline justify-between gap-2">
+                  <span className="text-sm text-muted-foreground">Gesamtpreis</span>
+                  <span className="font-display text-2xl font-extrabold text-foreground">€{s.total}</span>
                 </div>
+
+                <a
+                  href="#"
+                  className="mt-4 flex items-center justify-center gap-1.5 rounded-xl bg-brand px-4 py-3 font-display text-lg font-extrabold text-brand-foreground shadow-sm transition-colors hover:bg-brand/90"
+                >
+                  €{s.monthly}
+                  <span className="text-sm font-bold">/Monat</span>
+                </a>
+                <p className="mt-2 text-center text-xs text-muted-foreground">Oder zahlen Sie in 12 Monaten</p>
               </div>
             </article>
           )
         })}
+      </div>
+
+      <div className="mt-12 flex justify-center">
+        <a
+          href="#"
+          className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 font-display text-base font-bold text-background transition-colors hover:bg-foreground/90"
+        >
+          Alle Services anzeigen
+          <ArrowRight className="size-5" />
+        </a>
       </div>
     </section>
   )
