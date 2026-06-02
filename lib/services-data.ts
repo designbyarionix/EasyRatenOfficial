@@ -40,7 +40,7 @@ export const services: Service[] = [
     title: "Reifenwechsel",
     category: "Handwerk",
     price: "35",
-    img: "/images/card-reifen.png",
+    img: "/images/action-reifenwechsel.png",
     description:
       "Schneller und sicherer Reifenwechsel für Ihr Fahrzeug. Inklusive Auswuchten und Einlagerung auf Wunsch.",
     included: ["Kostenlose Beratung", "Auswuchten inklusive", "Garantie 12 Monate"],
@@ -52,7 +52,7 @@ export const services: Service[] = [
     title: "Umzug",
     category: "Umzug",
     price: "35",
-    img: "/images/card-umzug.png",
+    img: "/images/action-umzug.png",
     description:
       "Stressfreier Umzug mit erfahrenen Helfern. Wir packen an – vom Verpacken bis zum Aufbau am neuen Zuhause.",
     included: ["Kostenlose Beratung", "Transport inklusive", "Versicherung inklusive"],
@@ -76,7 +76,7 @@ export const services: Service[] = [
     title: "Badezimmerrenovierung",
     category: "Handwerk",
     price: "35",
-    img: "/images/card-bad.png",
+    img: "/images/action-badrenovierung.png",
     description:
       "Komplette Badezimmerrenovierung aus einer Hand. Von der Planung bis zur Fliese – alles aus einer Hand.",
     included: ["Kostenlose Beratung", "Materialien inklusive", "Garantie 24 Monate"],
@@ -100,7 +100,7 @@ export const services: Service[] = [
     title: "Malerarbeiten",
     category: "Haus & Garten",
     price: "35",
-    img: "/images/card-maler.png",
+    img: "/images/action-malerarbeiten.png",
     description:
       "Saubere Malerarbeiten für Innen und Außen. Streichen, Tapezieren und Spachteln vom Profi.",
     included: ["Kostenlose Beratung", "Materialien inklusive", "Garantie 12 Monate"],
@@ -112,7 +112,7 @@ export const services: Service[] = [
     title: "Reinigungsservice",
     category: "Reinigung",
     price: "35",
-    img: "/images/card-reinigung.png",
+    img: "/images/action-reinigung.png",
     description:
       "Gründliche Reinigung für Haushalt und Büro. Zuverlässig, diskret und nach Ihren Wünschen.",
     included: ["Kostenlose Beratung", "Reinigungsmittel inklusive", "Flexible Termine"],
