@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   Home,
   Wrench,
@@ -15,6 +16,7 @@ import {
   LayoutGrid,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { services } from "@/lib/services-data"
 
 const categories = [
   { label: "Alle Services", icon: LayoutGrid },
@@ -25,21 +27,6 @@ const categories = [
   { label: "Umzug", icon: Truck },
   { label: "Klempner", icon: Droplet },
   { label: "Elektrik", icon: Zap },
-]
-
-const services = [
-  { title: "Klempnerarbeiten", category: "Klempner", price: "35", img: "/images/card-klempner.png" },
-  { title: "Elektroinstallation", category: "Elektrik", price: "35", img: "/images/card-elektrik.png" },
-  { title: "Reifenwechsel", category: "Handwerk", price: "35", img: "/images/card-reifen.png" },
-  { title: "Umzug", category: "Umzug", price: "35", img: "/images/card-umzug.png" },
-  { title: "Küchenmontage", category: "Handwerk", price: "35", img: "/images/card-kueche.png" },
-  { title: "Badezimmerrenovierung", category: "Handwerk", price: "35", img: "/images/card-bad.png" },
-  { title: "Gartenpflege", category: "Haus & Garten", price: "35", img: "/images/card-garten.png" },
-  { title: "Malerarbeiten", category: "Haus & Garten", price: "35", img: "/images/card-maler.png" },
-  { title: "Reinigungsservice", category: "Reinigung", price: "35", img: "/images/card-reinigung.png" },
-  { title: "IT-Support", category: "IT & Technik", price: "35", img: "/images/card-it.png" },
-  { title: "Möbelaufbau", category: "Handwerk", price: "35", img: "/images/card-moebel.png" },
-  { title: "Hausgeräte Reparatur", category: "IT & Technik", price: "35", img: "/images/card-geraete.png" },
 ]
 
 function StarRating() {
@@ -134,7 +121,7 @@ export function AllServices() {
                 key={s.title}
                 className="group flex flex-col overflow-hidden rounded-2xl bg-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] ring-1 ring-border/60 transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                <Link href={`/services/${s.slug}`} className="relative block aspect-[16/10] w-full overflow-hidden">
                   <Image
                     src={s.img || "/placeholder.svg"}
                     alt={s.title}
@@ -142,11 +129,15 @@ export function AllServices() {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
-                </div>
+                </Link>
 
                 <div className="flex items-center justify-between gap-4 p-5">
                   <div className="min-w-0">
-                    <h2 className="font-display text-lg font-bold text-balance">{s.title}</h2>
+                    <h2 className="font-display text-lg font-bold text-balance">
+                      <Link href={`/services/${s.slug}`} className="transition-colors hover:text-brand">
+                        {s.title}
+                      </Link>
+                    </h2>
                     <div className="mt-1.5">
                       <StarRating />
                     </div>
@@ -156,10 +147,11 @@ export function AllServices() {
                     </p>
                   </div>
                   <Button
+                    asChild
                     variant="outline"
                     className="h-10 shrink-0 rounded-xl border-border px-6 font-semibold text-foreground hover:border-brand hover:bg-brand hover:text-brand-foreground"
                   >
-                    Buchen
+                    <Link href={`/services/${s.slug}`}>Buchen</Link>
                   </Button>
                 </div>
               </article>
