@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import {
   Wrench,
   Zap,
@@ -48,6 +49,7 @@ function euro(value: number) {
 
 export function BookingForm({ service, config }: { service: Service; config: BookingConfig }) {
   const CategoryIcon = categoryIcons[service.category] ?? Wrench
+  const router = useRouter()
 
   // Single-choice fields (select/radio) store the selected option index.
   const [choices, setChoices] = useState<Record<string, number>>(() => {
@@ -255,7 +257,14 @@ export function BookingForm({ service, config }: { service: Service; config: Boo
               </ul>
             </div>
 
-            <Button className="mt-5 h-14 w-full rounded-xl bg-brand text-lg font-bold text-brand-foreground hover:bg-brand/90">
+            <Button
+              onClick={() =>
+                router.push(
+                  `/services/${service.slug}/buchen/termin?monthly=${monthly.toFixed(2)}&months=${months}&total=${total.toFixed(2)}`,
+                )
+              }
+              className="mt-5 h-14 w-full rounded-xl bg-brand text-lg font-bold text-brand-foreground hover:bg-brand/90"
+            >
               Weiter zum Termin
               <ArrowRight className="size-5" />
             </Button>
