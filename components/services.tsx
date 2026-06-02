@@ -81,7 +81,7 @@ export function Services() {
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand text-brand-foreground">
                     <Icon className="size-5" />
                   </span>
-                  <h3 className="font-display text-2xl font-bold">{s.title}</h3>
+                  <h3 className="font-display text-xl font-bold leading-tight text-balance sm:text-2xl">{s.title}</h3>
                 </div>
 
                 <div className="mt-5 flex items-baseline justify-between gap-2">
