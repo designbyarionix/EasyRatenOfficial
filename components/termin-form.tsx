@@ -335,9 +335,10 @@ export function TerminForm({
 
 function Stepper() {
   const steps = [
-    { n: 1, title: "Termin wählen", desc: "Wählen Sie Datum und Uhrzeit", active: true },
-    { n: 2, title: "Laufzeit wählen", desc: "Wählen Sie die Laufzeit Ihres Plans", active: false },
-    { n: 3, title: "Zusammenfassung", desc: "Überprüfen und Buchung abschließen", active: false },
+    { n: 1, title: "Service auswählen", desc: "Service ausgewählt", status: "done" as const },
+    { n: 2, title: "Laufzeit auswählen", desc: "Laufzeit Ihres Plans ausgewählt", status: "done" as const },
+    { n: 3, title: "Termin wählen", desc: "Wählen Sie Datum und Uhrzeit", status: "active" as const },
+    { n: 4, title: "Zahlung", desc: "Buchung abschließen und bezahlen", status: "upcoming" as const },
   ]
 
   return (
@@ -348,17 +349,31 @@ function Stepper() {
             <span
               className={[
                 "flex size-11 shrink-0 items-center justify-center rounded-full font-display text-lg font-bold",
-                step.active ? "bg-brand text-brand-foreground" : "bg-ink text-ink-foreground",
+                step.status === "active"
+                  ? "bg-brand text-brand-foreground"
+                  : step.status === "done"
+                    ? "bg-brand/10 text-brand ring-2 ring-brand/30"
+                    : "bg-ink text-ink-foreground",
               ].join(" ")}
             >
-              {step.n}
+              {step.status === "done" ? <Check className="size-5" strokeWidth={3} /> : step.n}
             </span>
             {i < steps.length - 1 && (
-              <span className={["my-1 w-0.5 flex-1", step.active ? "bg-brand" : "bg-border"].join(" ")} />
+              <span
+                className={[
+                  "my-1 w-0.5 flex-1",
+                  step.status === "done" || step.status === "active" ? "bg-brand" : "bg-border",
+                ].join(" ")}
+              />
             )}
           </div>
           <div className={i < steps.length - 1 ? "pb-8" : ""}>
-            <h3 className={["font-display text-base font-bold", step.active ? "text-brand" : "text-foreground"].join(" ")}>
+            <h3
+              className={[
+                "font-display text-base font-bold",
+                step.status === "active" ? "text-brand" : "text-foreground",
+              ].join(" ")}
+            >
               {step.title}
             </h3>
             <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
