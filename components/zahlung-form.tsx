@@ -2,6 +2,7 @@
 
 import { Wrench, CheckCircle2, ArrowRight, Tag, CalendarDays, TrendingUp, Lock, ShieldCheck } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BookingStepper } from "@/components/booking-stepper"
 import type { Service } from "@/lib/services-data"
 
 function euro(value: number) {
@@ -54,7 +55,9 @@ export function ZahlungForm({
         <h1 className="font-display text-4xl font-extrabold text-balance sm:text-5xl">Zahlungsmethode bestätigen</h1>
 
         {/* Horizontal stepper */}
-        <StepperBar />
+        <div className="mt-8">
+          <BookingStepper current={4} />
+        </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_380px]">
           {/* Klarna card */}
@@ -177,50 +180,4 @@ function SummaryRow({ Icon, label, value }: { Icon: typeof Wrench; label: string
   )
 }
 
-function StepperBar() {
-  const steps = [
-    { n: 1, title: "Termin wählen", status: "done" as const },
-    { n: 2, title: "Details eingeben", status: "done" as const },
-    { n: 3, title: "Zahlungsmethode", status: "active" as const },
-    { n: 4, title: "Bestätigung", status: "upcoming" as const },
-  ]
 
-  return (
-    <div className="mt-8 flex items-start">
-      {steps.map((step, i) => (
-        <div key={step.n} className="flex flex-1 flex-col items-center last:flex-none">
-          <div className="flex w-full items-center">
-            <span
-              className={[
-                "flex size-10 shrink-0 items-center justify-center rounded-full font-display text-base font-bold",
-                step.status === "active"
-                  ? "bg-brand text-brand-foreground"
-                  : step.status === "done"
-                    ? "bg-ink text-ink-foreground"
-                    : "bg-muted text-muted-foreground",
-              ].join(" ")}
-            >
-              {step.status === "done" ? <CheckCircle2 className="size-6" /> : step.n}
-            </span>
-            {i < steps.length - 1 && (
-              <span
-                className={[
-                  "mx-2 h-0.5 flex-1 rounded-full",
-                  step.status === "done" ? "bg-ink" : step.status === "active" ? "bg-brand" : "bg-border",
-                ].join(" ")}
-              />
-            )}
-          </div>
-          <span
-            className={[
-              "mt-3 text-sm font-medium",
-              step.status === "active" ? "text-brand" : "text-foreground/70",
-            ].join(" ")}
-          >
-            {step.title}
-          </span>
-        </div>
-      ))}
-    </div>
-  )
-}

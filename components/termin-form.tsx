@@ -22,6 +22,7 @@ import {
   X,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BookingStepper } from "@/components/booking-stepper"
 import type { Service, BookingConfig } from "@/lib/services-data"
 
 const categoryIcons: Record<string, typeof Wrench> = {
@@ -114,11 +115,12 @@ export function TerminForm({
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="font-display text-3xl font-extrabold text-balance sm:text-4xl">{service.title} buchen</h1>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[260px_1fr_360px]">
-        {/* Left: stepper */}
-        <Stepper />
+      <div className="mt-8">
+        <BookingStepper current={3} />
+      </div>
 
-        {/* Middle: calendar + time */}
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_360px]">
+        {/* Left: calendar + time */}
         <section className="grid gap-6 md:grid-cols-2">
           {/* Calendar */}
           <div className="rounded-2xl bg-card p-5 shadow-[0_2px_20px_rgba(0,0,0,0.06)] ring-1 ring-border/60 sm:p-6">
@@ -337,57 +339,6 @@ export function TerminForm({
         </div>
       </div>
     </div>
-  )
-}
-
-function Stepper() {
-  const steps = [
-    { n: 1, title: "Service auswählen", desc: "Service ausgewählt", status: "done" as const },
-    { n: 2, title: "Laufzeit auswählen", desc: "Laufzeit Ihres Plans ausgewählt", status: "done" as const },
-    { n: 3, title: "Termin wählen", desc: "Wählen Sie Datum und Uhrzeit", status: "active" as const },
-    { n: 4, title: "Zahlung", desc: "Buchung abschließen und bezahlen", status: "upcoming" as const },
-  ]
-
-  return (
-    <aside className="flex flex-col">
-      {steps.map((step, i) => (
-        <div key={step.n} className="flex gap-4">
-          <div className="flex flex-col items-center">
-            <span
-              className={[
-                "flex size-11 shrink-0 items-center justify-center rounded-full font-display text-lg font-bold",
-                step.status === "active"
-                  ? "bg-brand text-brand-foreground"
-                  : step.status === "done"
-                    ? "bg-brand/10 text-brand ring-2 ring-brand/30"
-                    : "bg-ink text-ink-foreground",
-              ].join(" ")}
-            >
-              {step.status === "done" ? <Check className="size-5" strokeWidth={3} /> : step.n}
-            </span>
-            {i < steps.length - 1 && (
-              <span
-                className={[
-                  "my-1 w-0.5 flex-1",
-                  step.status === "done" || step.status === "active" ? "bg-brand" : "bg-border",
-                ].join(" ")}
-              />
-            )}
-          </div>
-          <div className={i < steps.length - 1 ? "pb-8" : ""}>
-            <h3
-              className={[
-                "font-display text-base font-bold",
-                step.status === "active" ? "text-brand" : "text-foreground",
-              ].join(" ")}
-            >
-              {step.title}
-            </h3>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
-          </div>
-        </div>
-      ))}
-    </aside>
   )
 }
 
