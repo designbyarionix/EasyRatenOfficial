@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Star,
   LayoutGrid,
+  Sparkles,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { services } from "@/lib/services-data"
@@ -27,6 +28,7 @@ const categories = [
   { label: "Umzug", icon: Truck },
   { label: "Klempner", icon: Droplet },
   { label: "Elektrik", icon: Zap },
+  { label: "Beauty", icon: Sparkles },
 ]
 
 function StarRating() {
