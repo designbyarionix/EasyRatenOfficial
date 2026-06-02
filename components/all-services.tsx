@@ -128,19 +128,19 @@ export function AllServices() {
             Alle Services
           </h1>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {filtered.map((s) => (
               <article
                 key={s.title}
                 className="group flex flex-col overflow-hidden rounded-2xl bg-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] ring-1 ring-border/60 transition-shadow hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)]"
               >
-                <div className="relative aspect-[16/7] w-full overflow-hidden">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <Image
                     src={s.img || "/placeholder.svg"}
                     alt={s.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                 </div>
 
