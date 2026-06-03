@@ -16,7 +16,7 @@ export const services: Service[] = [
     title: "Klempnerarbeiten",
     category: "Handwerk",
     price: "35",
-    img: "/images/card-klempner.png",
+    img: "/images/studio-klempner.png",
     description:
       "Professionelle Klempnerarbeiten für Ihr Zuhause. Schnelle Reparaturen, Installationen und Wartung.",
     included: ["Kostenlose Beratung", "Materialien inklusive", "Garantie 12 Monate"],
@@ -38,9 +38,9 @@ export const services: Service[] = [
   {
     slug: "reifenwechsel",
     title: "Reifenwechsel",
-    category: "Handwerk",
+    category: "Auto",
     price: "35",
-    img: "/images/action-reifenwechsel.png",
+    img: "/images/studio-reifenwechsel.png",
     description:
       "Schneller und sicherer Reifenwechsel für Ihr Fahrzeug. Inklusive Auswuchten und Einlagerung auf Wunsch.",
     included: ["Kostenlose Beratung", "Auswuchten inklusive", "Garantie 12 Monate"],
@@ -52,7 +52,7 @@ export const services: Service[] = [
     title: "Umzug",
     category: "Umzug",
     price: "35",
-    img: "/images/action-umzug.png",
+    img: "/images/studio-umzug.png",
     description:
       "Stressfreier Umzug mit erfahrenen Helfern. Wir packen an – vom Verpacken bis zum Aufbau am neuen Zuhause.",
     included: ["Kostenlose Beratung", "Transport inklusive", "Versicherung inklusive"],
@@ -64,7 +64,7 @@ export const services: Service[] = [
     title: "Küchenmontage",
     category: "Handwerk",
     price: "35",
-    img: "/images/card-kueche.png",
+    img: "/images/studio-kuechenmontage.png",
     description:
       "Fachgerechte Montage Ihrer neuen Küche. Präzise Installation aller Schränke, Geräte und Arbeitsplatten.",
     included: ["Kostenlose Beratung", "Geräteanschluss inklusive", "Garantie 12 Monate"],
@@ -76,7 +76,7 @@ export const services: Service[] = [
     title: "Badezimmerrenovierung",
     category: "Handwerk",
     price: "35",
-    img: "/images/action-badrenovierung.png",
+    img: "/images/studio-badezimmer.png",
     description:
       "Komplette Badezimmerrenovierung aus einer Hand. Von der Planung bis zur Fliese – alles aus einer Hand.",
     included: ["Kostenlose Beratung", "Materialien inklusive", "Garantie 24 Monate"],
@@ -112,7 +112,7 @@ export const services: Service[] = [
     title: "Reinigungsservice",
     category: "Reinigung",
     price: "35",
-    img: "/images/action-reinigung.png",
+    img: "/images/studio-reinigung.png",
     description:
       "Gründliche Reinigung für Haushalt und Büro. Zuverlässig, diskret und nach Ihren Wünschen.",
     included: ["Kostenlose Beratung", "Reinigungsmittel inklusive", "Flexible Termine"],
@@ -136,7 +136,7 @@ export const services: Service[] = [
     title: "Möbelaufbau",
     category: "Handwerk",
     price: "35",
-    img: "/images/card-moebel.png",
+    img: "/images/studio-moebelaufbau.png",
     description:
       "Schneller und sicherer Aufbau Ihrer Möbel. Vom Kleiderschrank bis zur kompletten Wohnungseinrichtung.",
     included: ["Kostenlose Beratung", "Werkzeug inklusive", "Garantie 12 Monate"],
@@ -148,7 +148,7 @@ export const services: Service[] = [
     title: "Hausgeräte Reparatur",
     category: "IT & Technik",
     price: "35",
-    img: "/images/card-geraete.png",
+    img: "/images/studio-hausgeraete.png",
     description:
       "Reparatur von Waschmaschine, Trockner & Co. Schnelle Diagnose und fachgerechte Instandsetzung.",
     included: ["Kostenlose Beratung", "Ersatzteile auf Lager", "Garantie 12 Monate"],
