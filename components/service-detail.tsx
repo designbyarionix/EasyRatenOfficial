@@ -11,6 +11,8 @@ import {
   Monitor,
   SprayCan,
   Droplet,
+  Car,
+  Sparkles,
   Star,
   Tag,
   Clock,
@@ -32,6 +34,8 @@ const categoryIcons: Record<string, typeof Wrench> = {
   "IT & Technik": Monitor,
   Reinigung: SprayCan,
   Klempner: Droplet,
+  Auto: Car,
+  Beauty: Sparkles,
 }
 
 const tabs = ["Übersicht", "Bewertungen", "Galerie"]

@@ -10,6 +10,8 @@ import {
   Monitor,
   SprayCan,
   Droplet,
+  Car,
+  Sparkles,
   Clock,
   Sun,
   Moon,
@@ -33,6 +35,8 @@ const categoryIcons: Record<string, typeof Wrench> = {
   "IT & Technik": Monitor,
   Reinigung: SprayCan,
   Klempner: Droplet,
+  Auto: Car,
+  Beauty: Sparkles,
 }
 
 const weekdays = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]

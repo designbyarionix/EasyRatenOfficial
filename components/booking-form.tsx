@@ -12,6 +12,7 @@ import {
   SprayCan,
   Droplet,
   Car,
+  Sparkles,
   Clock,
   ShieldCheck,
   MapPin,
@@ -34,6 +35,8 @@ const categoryIcons: Record<string, typeof Wrench> = {
   "IT & Technik": Monitor,
   Reinigung: SprayCan,
   Klempner: Droplet,
+  Auto: Car,
+  Beauty: Sparkles,
 }
 
 const termMonths: Record<string, number> = {
